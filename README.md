@@ -85,3 +85,28 @@ aki_ow1_features_imp.csv
 aki_ow1_features_imp_smote.csv
 aki_ow1_pred.csv
 aki_ow1_pred_smote.csv
+
+# Best Hyperparameters for the models
+SEPSIS HYPERPARAMETERS:
+SMOTE:  False
+C= 0.1 , penalty= l1, n_estimators= 10 , max_depth= 20
+SMOTE:  True
+C= 0.1 , penalty= l2, n_estimators= 100 , max_depth= 20
+
+AKI-24 HYPERPARAMETERS:
+SMOTE:  False
+C= 0.1, penalty= l2, n_estimators= 10, max_depth= 18
+SMOTE:  True
+C= 0.75, penalty= l2, n_estimators= 100, max_depth= 20
+
+AKI-48 HYPERPARAMETERS:
+SMOTE:  False
+No good hyperparameters (all bad).
+SMOTE:  True
+C= 1, penalty= l2, n_estimators= 100, max_depth= 20
+
+AKI-72 HYPERPARAMETERS:
+SMOTE:  False
+No good hyperparameters (all bad).
+SMOTE:  True
+C= 1, penalty= l1, n_estimators= 100, max_depth= 20
