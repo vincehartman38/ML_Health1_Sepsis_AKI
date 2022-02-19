@@ -76,15 +76,15 @@ without SMOTE:
 
 These 6 operations would create the following files in the results folder:
 aki.csv
-train_aki_pred_matrix_24.csv
-test_aki_pred_matrix_24.csv
-test_aki_pred_matrix_24.csv
-aki_ow1_train_results.csv
-aki_ow1_train_results_smote.csv
-aki_ow1_features_imp.csv
-aki_ow1_features_imp_smote.csv
-aki_ow1_pred.csv
-aki_ow1_pred_smote.csv
+train_aki_pred_matrix_24.csv  
+test_aki_pred_matrix_24.csv  
+test_aki_pred_matrix_24.csv  
+aki_ow1_train_results.csv  
+aki_ow1_train_results_smote.csv  
+aki_ow1_features_imp.csv  
+aki_ow1_features_imp_smote.csv  
+aki_ow1_pred.csv  
+aki_ow1_pred_smote.csv  
 
 # Best Hyperparameters for the models
 SEPSIS HYPERPARAMETERS:  
