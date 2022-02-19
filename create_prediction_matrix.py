@@ -1,6 +1,5 @@
 # Libraries to Load
 import argparse
-import sys
 import numpy as np
 import load_and_save
 

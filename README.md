@@ -73,3 +73,15 @@ without SMOTE:
 6. python make_predictions.py --dataset aki --onset_window 24 --find_hyperparameters False \
 --smote False --C 0.25 --penalty l1 --n_estimators 100 \
 --max_depth 15
+
+These 6 operations would create the following files in the results folder:
+aki.csv
+train_aki_pred_matrix_24.csv
+test_aki_pred_matrix_24.csv
+test_aki_pred_matrix_24.csv
+aki_ow1_train_results.csv
+aki_ow1_train_results_smote.csv
+aki_ow1_features_imp.csv
+aki_ow1_features_imp_smote.csv
+aki_ow1_pred.csv
+aki_ow1_pred_smote.csv

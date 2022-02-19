@@ -1,7 +1,11 @@
 # Libraries to Load
 import os
 import csv
+from pathlib import Path
 
+# Make data and results directories if they do not exist
+Path("./data").mkdir(parents=True, exist_ok=True)
+Path("./results").mkdir(parents=True, exist_ok=True)
 
 # load dataset
 def data_transpose(datapath: str, data_split: str) -> list:
