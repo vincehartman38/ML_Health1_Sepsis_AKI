@@ -33,8 +33,8 @@ def develops_aki(dataset: list, patients: list, index: int = 19) -> list:
                         [x for x in creatinine[prev_168:j] if x is not None],
                         default=None,
                     )
-                    if (min_48 and (creatinine[j] >= (min_48 + 0.3))) or (
-                        min_168 and (creatinine[j] >= min_168 * 1.5)
+                    if (min_48 and (creatinine[j] >= round(min_48 + 0.3, 2))) or (
+                        min_168 and (creatinine[j] >= round(min_168 * 1.5, 2))
                     ):
                         aki = True
                         when = j + 1
