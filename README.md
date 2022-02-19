@@ -31,7 +31,7 @@ python create_labels.py --dataset [sepsis|aki]
 ```
 Returns file: {dataset}.csv 
 
-## Create the train and test prediciton matrix
+### 3. Create the train and test prediciton matrix
 Formats the data for the prediction models. It will create a matrix with size
 number of patients x 35 features. In order to predict either sepsis or aki
 on the test dataset, you must create a prediction matrix of both the train and
@@ -43,14 +43,14 @@ python create_prediction_matrix.py --dataset [sepsis|aki] --data_split[train|tes
 ```
 Returns file: {data_split}_{dataset}_pred_matrix_{onset_window}.csv 
 
-## Hypertune the training models for prediction
+### 4. Hypertune the training models for prediction
 Find the best hyperparameters for both the Logistic Regression and Random Forest Models
 ```
 python make_predictions.py --dataset [sepsis|aki] --onset_window[24|48|72] --find_hyperparameters True
 ```
 Returns: Prints results to console
 
-## Make Predictions
+### 5. Make Predictions
 Returns the prediction performance, most important features, and test set predictions
 ```
 python make_predictions.py --dataset [sepsis|aki] --onset_window[24|48|72] --find_hyperparameters False \
@@ -59,7 +59,7 @@ python make_predictions.py --dataset [sepsis|aki] --onset_window[24|48|72] --fin
 ```
 Returns 3 files: (1) {dataset}_train_results_{smote}.csv (2) {dataset}_features_imp_{smote}.csv, (3) {dataset}_pred_{smote}.csv
 
-# Example of AKI - 24 Hour Window Prediction of Test Data Set
+## Example of AKI - 24 Hour Window Prediction of Test Data Set
 1. python create_labels.py --dataset aki
 2. python create_distribution.py --dataset aki --onset_window 24 --data_split train
 3. python create_distribution.py --dataset aki --onset_window 24 --data_split test
@@ -86,7 +86,7 @@ aki_ow1_features_imp_smote.csv
 aki_ow1_pred.csv  
 aki_ow1_pred_smote.csv  
 
-# Best Hyperparameters for the models
+## Best Hyperparameters for the models
 SEPSIS HYPERPARAMETERS:  
 SMOTE:  False  
 C= 0.1 , penalty= l1, n_estimators= 10 , max_depth= 20  
