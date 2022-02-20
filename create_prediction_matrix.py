@@ -7,16 +7,24 @@ import load_and_save
 def sepsis_pred_matrix(data: list, labels: list, data_split: str = "train") -> list:
     table = np.zeros((len(data), 35))
     for i, matrix in enumerate(data):
+        hours_admit = matrix[-2]
         np_matrix = np.array(matrix, dtype=np.float64)
         np_matrix = np_matrix[:35, :]
-        _, hours_admit = np_matrix.shape
         # if case (developed sepsis)
         if (data_split == "train") and int(labels[i][1]):
             ow = np_matrix[:, :-6]
-        # if control (did not develop sepsis)
         else:
-            t_6 = 24 if (hours_admit >= 24) else hours_admit
-            ow = np_matrix[:, :t_6]
+            # if control (did not develop sepsis)
+            """if one patient is not discharged during 24 hours, the length of OW
+            is set as a 24-hour time window after admission to the ICU.
+            If a patient is discharged within 24 hours, we consider the entire time window
+            from admission to discharge. If a control case in the training data has the
+            first 24 hours of data missing, use the entire data provided per patient as the OW."""
+            try:
+                hour_index = hours_admit.index(24)
+            except ValueError:
+                hour_index = -1
+            ow = np_matrix[:, :hour_index]
         mean_matrix = np.nanmean(ow, axis=1, dtype=np.float64)
         table[i] = mean_matrix.T
     # replace nan values with the median across the column
@@ -42,6 +50,7 @@ def aki_pred_matrix(
 ) -> list:
     table = []
     for i, matrix in enumerate(data):
+        hours_admit = matrix[-1]
         np_matrix = np.array(matrix, dtype=np.float64)
         np_matrix = np_matrix[:35, :]
         # Remove cases (developed AKI) in the prediction window

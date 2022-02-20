@@ -17,6 +17,7 @@ def develops_aki(dataset: list, patients: list, index: int = 19) -> list:
     for i, row in enumerate(dataset):
         # calculate if the patient develops aki or not
         creatinine = row[index]
+        hours_since_admit = row[-1]
         aki = False
         when = 0
         if creatinine and len(creatinine) > 2:
@@ -37,10 +38,10 @@ def develops_aki(dataset: list, patients: list, index: int = 19) -> list:
                         min_168 and (creatinine[j] >= round(min_168 * 1.5, 2))
                     ):
                         aki = True
-                        when = j + 1
+                        when = hours_since_admit[j]
                         break
             # save the values
-            table.append([patients[i], int(aki), when])
+            table.append([patients[i], int(aki), int(when)])
     return table
 
 
