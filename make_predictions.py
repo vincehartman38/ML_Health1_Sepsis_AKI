@@ -136,7 +136,9 @@ def run_prediction(
     # list important features
     print("Saving important features...")
     a = lr.coef_[0]
-    lr_feature_ids = sorted(range(len(a)), key=lambda k: a[k], reverse=True)
+    # absolute value of LR coefficients
+    a_abs = [abs(x) for x in a]
+    lr_feature_ids = sorted(range(len(a_abs)), key=lambda k: a_abs[k], reverse=True)
     lr_feature_names = [features[x] for x in lr_feature_ids][:20]
     b = rf.feature_importances_
     rf_feature_ids = sorted(range(len(b)), key=lambda k: b[k], reverse=True)
